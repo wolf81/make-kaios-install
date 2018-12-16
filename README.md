@@ -14,7 +14,13 @@ The script infers the app id, which is required for the install script, from the
 
 ## Dependencies
 
-Extract the following packages to `~/bin`.
+1. `make` installed on your system.
+
+-On Mac: run `xcode-select --install`. Then follow the on-screen prompts.
+
+-On Linux: Should be preinstalled. If not, follow your distribution's instructions.
+
+2. Extract the following packages to `~/bin`.
 
 If you choose a different path, change the variables in `Makefile`):
 
