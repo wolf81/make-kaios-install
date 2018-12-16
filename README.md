@@ -1,6 +1,6 @@
-# Make FxOS Install
+# Make KaiOS Install
 
-Command-line tools to install packaged and hosted apps using the Firefox OS remote debugging protocols.
+Command-line tools to install packaged and hosted apps using the KaiOS remote debugging protocols.
 
 ## How it works
 
@@ -14,7 +14,7 @@ The script infers the app id, which is required for the install script, from the
 
 ## Dependencies
 
-Extract the following packages `~/bin`.
+Extract the following packages to `~/bin`.
 
 If you choose a different path, change the variables in `Makefile`):
 
@@ -23,41 +23,37 @@ If you choose a different path, change the variables in `Makefile`):
 
 ### XULRunner (contains XPCShell command)
 
-http://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/18.0.2/sdk/
+Download XULRunner from [Mozilla](http://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/18.0.2/sdk/).
 
 ### Android SDK (contains ADB command)
 
-http://developer.android.com/sdk/index.html#download
+Download adb from [XDADevelopers](https://www.xda-developers.com/install-adb-windows-macos-linux/).
 
-### Enable `Remote Debugging` on Device
+### Enable Debugging on Device
 
-Enable `Remote Debugging` in `Settings > Device Information > Developer`.
+While on the home screen, type `*#*#33284#*#*` to enable debug mode. A bug icon should appear on the status bar.
 
 ## Usage
 
 ### Packaged
 
-See folder `my-package`. Your app should at least have an `index.html` and a `manifest.webapp` with the correct `launch_path`. App `type` can be either `web` or `privileged`.
+Your app should at least have an `index.html` and a `manifest.webapp` with the correct `launch_path`. App `type` can be `web`, `privileged` or `certified`.
 
-Install packaged app from folder ``
+From folder:
 
-	make FOLDER=my-package packaged install
-
-From another folder:
-
-	make FOLDER=~/Sites/mobile-dev packaged install
+	make FOLDER=/some/folder packaged install
 
 From another folder, setting app id (recommended if the folder name is not useful as unique app id):
 
-	make FOLDER=~/Sites/mobile-dev/web ID=mobile-dev packaged install
+	make FOLDER=/some/folder ID=some-id packaged install
 
 ### Hosted
 
-See `my-hosted` folder. Your folder only needs to contain `manifest.webapp` and a `metadata.json`. In most cases you only need to adapt `origin` in `metadata.json` and `launch_path` in the manifest.
+Your folder only needs to contain `manifest.webapp` and a `metadata.json`. In most cases you only need to adapt `origin` in `metadata.json` and `launch_path` in the manifest.
 
 Install hosted app from folder `my-hosted`:
 
-	make FOLDER=my-hosted hosted install
+	make FOLDER=/some/app hosted install
 
 ## Thanks
 
