@@ -25,7 +25,7 @@ function connect(aPort, aHost) {
 try {
   dump("Connecting to install " + arguments[0] + "\n");
   gId = arguments[0];
-  port = arguments[1] || 6000;
+  port = arguments[1];
 
   connect(port, "localhost");
   gClient = new DebuggerClient(gTransport);

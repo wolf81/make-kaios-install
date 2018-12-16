@@ -1,4 +1,4 @@
-PORT_DEVICE = 6000
+PORT_DEVICE = localfilesystem:/data/local/debugger-socket
 PORT_LOCAL = 6000
 XPCSHELL = ~/bin/xulrunner-sdk/bin/xpcshell
 ADB = ~/bin/android-sdk/platform-tools/adb
@@ -19,6 +19,6 @@ hosted:
 
 install:
 	@echo "FORWARDING device port $(PORT_DEVICE) to $(PORT_LOCAL)"
-	@${ADB} forward tcp:$(PORT_LOCAL) tcp:$(PORT_DEVICE)
-	@echo "!!! CONFIRM THE PROMPT on the phone !!!"
+	@${ADB} forward tcp:$(PORT_LOCAL) $(PORT_DEVICE)
+	#@echo "!!! CONFIRM THE PROMPT on the phone !!!"
 	${XPCSHELL} install.js ${ID} $(PORT_LOCAL)
