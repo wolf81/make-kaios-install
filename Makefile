@@ -20,5 +20,4 @@ hosted:
 install:
 	@echo "FORWARDING device port $(PORT_DEVICE) to $(PORT_LOCAL)"
 	@${ADB} forward tcp:$(PORT_LOCAL) $(PORT_DEVICE)
-	#@echo "!!! CONFIRM THE PROMPT on the phone !!!"
 	${XPCSHELL} install.js ${ID} $(PORT_LOCAL)
